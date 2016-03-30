@@ -31,6 +31,8 @@ sudo systemctl start home-assistant@pi
 
 Start with `systemctl start home-assistant@pi.service`
 
+To view log: `sudo journalctl -f -u home-assistant@pi`
+
 ## Optional:
 
 ``` 
