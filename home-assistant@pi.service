@@ -1,0 +1,15 @@
+# This is a simple service file for systems with systemd to run HA as user.
+
+[Unit]
+Description=Home Assistant for %i
+After=network.target
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/home/pi/data
+ExecStart=/usr/local/bin/hass --config /home/pi/data/home-assistant/
+SendSIGKILL=no
+
+[Install]
+WantedBy=multi-user.target
