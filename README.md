@@ -5,16 +5,18 @@
 
 ## Install Home Assistant
 
+For up-to-date install guide see [Home Assistant install guide](https://home-assistant.io/getting-started/)
+
 Assuming starting with Raspbien Jessie (tested on emonPi image): 
 
     sudo apt-get install python3-pip
     pip3 install homeassistant
 
-Install and run with custom config location on R/W partition: 
+Install and run with OEM configured `configuration.yaml` and custom dir config location on emonPi ~/data R/W partition: 
 
 ```
 mkdir ~/data/home-assistant 
-ln -s /home/pi/oem_home-assistant /home/pi/data/home-assistant
+ln -s /home/pi/oem_home-assistant/configuration.yaml /home/pi/data/home-assistant/configuration.yaml
 hass --config /home/pi/data/home-assistant
 ```
 
