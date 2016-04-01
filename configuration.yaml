@@ -1,0 +1,151 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: emonPi Demo
+  # C for Celcius, F for Fahrenheit
+  temperature_unit: C
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/London
+  # Location required to calculate the time the sun rises and sets
+  latitude: 56.14286
+  longitude: -4.15401
+  
+  customize:
+    sensor.emonpi1:
+      entity_picture: https://raw.githubusercontent.com/emoncms/emoncms/master/Theme/basic/favicon.png
+    sensor.emonpi2:
+      icon: mdi:weather-sunny
+               
+http:
+  api_password: raspberry
+
+# Discover some devices automatically
+discovery:
+
+# Track the sun
+sun:
+  hidden: true
+
+# Allows you to issue voice commands from the frontend
+conversation:
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables support for tracking state changes over time.
+history:
+
+# Checks for available updates
+updater:
+
+# Enables the frontend
+frontend:
+
+# View all events in a logbook
+logbook:
+
+mqtt: # emonPi default MQTT server
+  broker: emonpi #set to emonPi IP adddress if hostname lookup does not work
+  port: 1883
+  client_id: home-assistant-1
+  keepalive: 60
+  username: emonpi
+  password: brynawelon2016
+ 
+sensor:
+# https://github.com/openenergymonitor/emonhub/blob/emon-pi/configuration.md
+  - platform: mqtt
+    state_topic: "emon/emonpi/power1"
+    name: "emonPi Power1"
+    unit_of_measurement: "W"
+
+  - platform: mqtt
+    state_topic: "emon/emonpi/power2"
+    name: "emonPi Power2"
+    unit_of_measurement: "W"
+
+  - platform: mqtt
+    state_topic: "emon/emontx/power1"
+    name: "emonTx Power1"
+    unit_of_measurement: "W"
+    
+  - platform: mqtt
+    state_topic: "emon/emonth1/temperature"
+    name: "emonTH1 Temp"
+    unit_of_measurement: "°C"
+
+  - platform: mqtt
+    state_topic: "emon/emonth1/humidity"
+    name: "emonTH1 Humidity"
+    unit_of_measurement: "°C"
+    
+  - platform: mqtt
+    state_topic: "emon/emonth5/temperature"
+    name: "emonTH5 Temp"
+    unit_of_measurement: "°C"
+    
+  - platform: mqtt
+    state_topic: "emon/emonth5/humidity"
+    name: "emonTH5 Humidity"
+    unit_of_measurement: "°C"
+
+
+#MQTT WiFi Relay https://openenergymonitor.org/emon/modules/wifirelay
+  - platform: mqtt
+    state_topic: "heating/status/ds18b20/1"
+    name: "Thermostat"
+    unit_of_measurement: "°C"
+    hidden: true
+
+# MQTT WiFi Relay https://openenergymonitor.org/emon/modules/wifirelay
+switch:
+  - platform: mqtt
+    name: "Heating"
+    state_topic: "heating/status/relay/1"
+    command_topic: "heating/control/relay/1"
+    payload_on: "1"
+    payload_off: "0"
+    optimistic: false
+    qos: 2
+    retain: true
+    
+    # https://github.com/openenergymonitor/lightwaverf-pi
+  - platform: mqtt
+    name: "LWRF 1"
+    command_topic: "lwrf"
+    payload_on: "1 1"
+    payload_off: "1 0"
+    optimistic: true
+    qos: 2
+    retain: true
+
+  
+
+group:
+  Lights:
+    name: LightWave RF OOK plug
+    entities:
+      - switch.lwrf1
+  
+  
+  Heating:
+    name: MQTT WiFi Relay
+    entities:
+      - sensor.thermostat
+      - switch.heating
+
+  Temperature:
+    name: Room Nodes
+    entities:
+      - sensor.emonth1_temp
+      - sensor.emonth1_humidity
+      - sensor.emonth5_temp
+      - sensor.emonth5_humidity
+  
+  Power:
+    name: Power
+    entities:
+      - sensor.emonpi_power1
+      - sensor.emonpi_power2
+      - sensor.emontx_power1
+
+
