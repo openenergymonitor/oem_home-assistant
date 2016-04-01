@@ -6,7 +6,7 @@
 
 ## My Home Setup Demo
 
-Based on a #emonPi with LightWave RF OOK plug control and MQTT WiFi relay controling my boilder
+Running on [emonPi](http://openenergymonitor.org/emon/emonpi) with [LightWave RF OOK plug control](https://github.com/openenergymonitor/lightwaverf-pi) and [MQTT WiFi relay](https://openenergymonitor.org/emon/modules/wifirelay) controling my boilder.
 
 ![home_demo](my_home_demo.jpg)
 
@@ -15,7 +15,7 @@ Based on a #emonPi with LightWave RF OOK plug control and MQTT WiFi relay contro
 
 ## Generic emonPi Config
 
-See `configuration.yaml` in this repo and instructions below to setup the following then customise to your setup:
+See `configuration.yaml` in this repo and instructions below to setup the following then customise to your setup. Data is obtained from the emonPi via MQTT. Home Assistant connects to emonPi MQTT server. See here for more info regarding [emonPi MQTT topic structure](https://github.com/emoncms/emoncms/blob/master/docs/RaspberryPi/MQTT.md) 
 
 ![emonpi demo](emonpi_demo.png)
 
