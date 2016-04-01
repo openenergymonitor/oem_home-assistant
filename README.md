@@ -32,6 +32,7 @@ Assuming starting with Raspbien Jessie (tested on [latest emonPi image](https://
 Install and run with OEM configured `configuration.yaml` and custom dir config location on emonPi ~/data R/W partition:
 
 ```
+git clone https://github.com/openenergymonitor/oem_home-assistant
 mkdir ~/data/home-assistant
 ln -s /home/pi/oem_home-assistant/configuration.yaml /home/pi/data/home-assistant/configuration.yaml
 hass --config /home/pi/data/home-assistant
