@@ -24,7 +24,7 @@ See `configuration.yaml` in this repo and instructions below to setup the follow
 
 For up-to-date install guide see [Home Assistant install guide](https://home-assistant.io/getting-started/)
 
-Assuming starting with Raspbien Jessie (tested on latest emonPi image `emonSD-29Mar16`):
+Assuming starting with Raspbien Jessie (tested on [latest emonPi image](https://github.com/openenergymonitor/emonpi/wiki/emonSD-pre-built-SD-card-Repository-&-Change-Log) `emonSD-29Mar16`):
 
     sudo apt-get install python3-pip
     pip3 install homeassistant
