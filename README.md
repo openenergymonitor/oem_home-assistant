@@ -10,7 +10,7 @@ Based on a #emonPi with LightWave RF OOK plug control and MQTT WiFi relay contro
 
 ![home_demo](my_home_demo.jpg)
 
-!Nice mini graph](demo2.png)
+![Nice mini graph](demo2.png)
 
 
 ## Generic emonPi Config
