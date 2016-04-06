@@ -47,12 +47,16 @@ sudo systemctl enable home-assistant@pi
 sudo systemctl start home-assistant@pi
 ```
 
-Start / stop with:
+**Start / stop with:**
 
     sudo systemctl start home-assistant@pi.service
     sudo systemctl start home-assistant@pi.service
 
 To view log: `sudo journalctl -f -u home-assistant@pi`
+
+** Restart**
+
+Home assistant can be restarted (this must be done after changing config) via web interface. You can restart HA by calling the homeassistant/restart service. Open the hamburger menu then click on the "remote" icon. Then you can select "homeassistant/restart" on the right hand side and press the "Call Service" button.
 
 ## Optional:
 
