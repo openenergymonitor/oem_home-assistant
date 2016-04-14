@@ -29,12 +29,18 @@ Assuming starting with Raspbien Jessie (tested on [latest emonPi image](https://
     sudo apt-get install python3-pip
     sudo pip3 install homeassistant
 
+Home Assistant can now be ran manually with: 
+
+    $ hass
+ 
+Note: this will run with HA folder in the default location. Be default the emonPi keeps the root parition in Read Only mode. To make HA run with emonPi is in RO mode we need to move the HA folder to the RW partition mounted in ~/data. See below for instructions 
+
 Install and run with OEM configured `configuration.yaml` and custom dir config location on emonPi ~/data R/W partition:
 
 ```
-git clone https://github.com/openenergymonitor/oem_home-assistant
-mkdir ~/data/home-assistant
-ln -s /home/pi/oem_home-assistant/configuration.yaml /home/pi/data/home-assistant/configuration.yaml
+$ git clone https://github.com/openenergymonitor/oem_home-assistant
+$ mkdir ~/data/home-assistant
+$ ln -s /home/pi/oem_home-assistant/configuration.yaml /home/pi/data/home-assistant/configuration.yaml
 hass --config /home/pi/data/home-assistant
 ```
 
@@ -64,3 +70,10 @@ Home assistant can be restarted (this must be done after changing config) via we
 sudo apt-get install python-Levenshtein
 sudo  apt-get install net-tools nmap
 ```
+
+## Issues 
+
+Since HA stores it's persistant DB in the HA data folder the default size of the data partition on the 4GB emonPi SD card is not sufficiant for log term use of HA. If using HA on emonPi it's recomneded to use at least 8GB and expand the data partion to fill the SD card see:
+
+https://github.com/emoncms/usefulscripts#sdpart_imagefile
+https://github.com/emoncms/usefulscripts/blob/master/sdpart/sdpart_imagefile
