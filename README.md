@@ -3,7 +3,9 @@
 
 [Home Assistant](https://home-assistant.io/) is an open-source home automation platform running on Python 3.
 
-**Update: ** Since this guide was written Home Assistant has been developed a lot, this guide may or may not still be relevant*
+**Update:** since this guide was written Home Assistant has been developed a lot, this guide may or may not still be relevant*
+
+***
 
 
 ## My Home Setup Demo
