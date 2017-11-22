@@ -49,7 +49,7 @@ mqtt: # emonPi default MQTT server
   client_id: home-assistant-1
   keepalive: 60
   username: emonpi
-  password: brynawelon2016
+  password: emonpimqtt2016
  
 sensor:
 # https://github.com/openenergymonitor/emonhub/blob/emon-pi/configuration.md
